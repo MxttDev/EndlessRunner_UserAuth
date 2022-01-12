@@ -1,11 +1,11 @@
 let mongoose = require("mongoose");
 
-const Store = mongoose.model('Store');
+const Leaderboard = mongoose.model('Leaderboard');
 
 module.exports = function(app) {
-    app.get("/store", (req, res) => {
+    app.get("/leaderboard", (req, res) => {
         
-  	    Store.find({}, '-_id', function(err, someValue) {
+  	    Leaderboard.find({}, '-_id', function(err, someValue) {
 
             if(err) return next(err);
 
