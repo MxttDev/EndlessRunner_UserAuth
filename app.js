@@ -19,7 +19,7 @@ mongoose.connect("mongodb+srv://admin:zraJhUoTCuZi2pxkTukVMANej7qNWNMo6kIxZTsv0P
 
 require('./models/user.js');
 require('./routes/users/steamID')(app);
-require('./routes/users')(app);
+require('./routes/users/users')(app);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
