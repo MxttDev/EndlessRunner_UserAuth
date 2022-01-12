@@ -1,8 +1,16 @@
-const mongoose = require("mongoose");
+let mongoose = require("mongoose");
 
+const User = mongoose.model('User');
 
 module.exports = function(app) {
-    app.get('/', function(req, res) {
-        res.send("success!");
-    })
-}
+    app.get("/users", (req, res) => {
+        
+  	    User.find({}, '-_id', function(err, someValue) {
+
+            if(err) return next(err);
+
+            res.send(someValue);
+		})
+	})
+};
+    
