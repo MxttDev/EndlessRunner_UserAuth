@@ -1,12 +1,21 @@
 const mongoose = require("mongoose");
 
 const leaderboardSchema = new mongoose.Schema({
-  productName: {
+  playerName: {
     type: String,
     required: true,
   },
-  description: {
+  Rank: {
     type: String,
+    required: true,
+  },
+  Wins: {
+    type: Number,
+    required: true,
+  }
+  ,
+  MatchPlayed: {
+    type: Number,
     required: true,
   }
 });
