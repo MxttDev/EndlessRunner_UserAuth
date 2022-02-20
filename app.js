@@ -36,6 +36,8 @@ app.post("/users/create", (req, res) => {
 })
 
 
-app.listen(process.env.PORT, ()=> {
-	console.log('listening on port 3000')
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT || 3000, () => {
+  console.log(`Server running on port ${PORT}`);
+});
