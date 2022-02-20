@@ -29,10 +29,7 @@ app.post("/users/create", (req, res) => {
     username: req.body.username,
     password: req.body.password,
   })
-	user.save(function (err, user) {
-    if (err) { return next(err) }
-    res.status(201).json(user)
-  })
+	user.save()
 })
 
 
