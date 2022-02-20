@@ -30,6 +30,9 @@ app.post("/users/create", (req, res) => {
     password: req.body.password,
   })
 	user.save()
+
+  res.send('Created User')
+
 })
 
 
