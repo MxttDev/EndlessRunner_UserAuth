@@ -37,9 +37,9 @@ app.post("/users/create", (req, res) => {
       if(err) return next(err);
 
       if (result.length > 0) {
-        res.send('created')
+        res.send('created');
       } else {
-        res.send('Already Created')
+        res.send('Already Created');
       }
     });
   }
