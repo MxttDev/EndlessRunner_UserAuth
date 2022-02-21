@@ -37,7 +37,7 @@ app.post("/users/create", (req, res) => {
       if(err) return next(err);
       console.log(result.length);
 
-      if (result.length < 0) {
+      if (result.length == 0) {
         User.save();
       } else {}
       res.end();
