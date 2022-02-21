@@ -39,14 +39,13 @@ app.post("/users/create", (req, res) => {
 
       if (result.length == 0) {
         user.save();
-      } else {}
+        res.send('User Created');
+      } else {
+        res.send('Aleady Created');
+      }
       res.end();
     });
   }
-
-
-  res.send('Created User')
-
 })
 
 
