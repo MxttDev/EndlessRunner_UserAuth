@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 const User = require("./models/user")
 
+
 //Connect to mongo database
 mongoose.connect("mongodb+srv://admin:zraJhUoTCuZi2pxkTukVMANej7qNWNMo6kIxZTsv0PcGhmPLJnAWOWm6rf0xn4Af3xxxUwNrg1FE0GKqqeBbEluzu80NowcWLdHeQXzfcQ8bTIFs4gOZh2WYz4oQYTzO@userstorage.v7p3x.mongodb.net/storage?retryWrites=true&w=majority", {
     useNewUrlParser: true,
@@ -31,7 +32,8 @@ app.post("/users/create", (req, res) => {
     password: req.body.password.toLowerCase(),
   })
   if (user) {
-    mongoose.User.find({ 'username': req.body.username.toLowerCase() }, function (err, docs) {
+    const Player = mongoose.model('User');
+    Player.find({ 'username': req.body.username.toLowerCase() }, function (err, docs) {
       if (err) throw err;
 
       console.log(docs);
