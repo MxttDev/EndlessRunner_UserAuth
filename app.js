@@ -34,7 +34,7 @@ app.post("/users/create", (req, res) => {
   if (user) {
     const Player = mongoose.model('User');
     Player.find({ 'username': req.body.username.toLowerCase() }, function (err, result) {
-      if (err) throw err;
+      if(err) return next(err);
 
       if (result.length > 0) {
         user.save()
