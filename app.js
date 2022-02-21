@@ -25,12 +25,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post("/users/create", (req, res) => {
+
   const user = new User({
     username: req.body.username.toLowerCase(),
     password: req.body.password.toLowerCase(),
   })
   if (user) {
-    mongoose.user.find({ 'username': req.body.username.toLowerCase() }, function (err, docs) {
+    mongoose.User.find({ 'username': req.body.username.toLowerCase() }, function (err, docs) {
       if (err) throw err;
 
       console.log(docs);
