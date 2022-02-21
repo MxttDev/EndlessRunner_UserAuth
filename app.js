@@ -30,7 +30,7 @@ app.post("/users/create", (req, res) => {
     password: req.body.password.toLowerCase(),
   })
   if (user) {
-    mongoose.find({ 'username': req.body.username.toLowerCase() }, function (err, docs) {
+    mongoose.Model.find({ 'username': req.body.username.toLowerCase() }, function (err, docs) {
       if (err) throw err;
 
       console.log(docs);
