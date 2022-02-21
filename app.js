@@ -38,7 +38,7 @@ app.post("/users/create", (req, res) => {
       console.log(result.length);
 
       if (result.length == 0) {
-        User.save();
+        user.save();
       } else {}
       res.end();
     });
