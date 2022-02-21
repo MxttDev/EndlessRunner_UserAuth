@@ -33,10 +33,14 @@ app.post("/users/create", (req, res) => {
   })
   if (user) {
     const Player = mongoose.model('User');
-    Player.find({ 'username': req.body.username.toLowerCase() }, function (err, docs) {
+    Player.find({ 'username': req.body.username.toLowerCase() }, function (err, result) {
       if (err) throw err;
 
-      console.log(docs);
+      if (result.length > 0) {
+        user.save()
+      } else {
+        res.send('Already Created')
+      }
     });
   }
 
