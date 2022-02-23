@@ -49,11 +49,8 @@ app.post("/users/create", (req, res) => {
           } else {
             res.send('Already created')
           }
-          res.end();
         });
-        
       } 
-      res.end();
     });
   }
 })
