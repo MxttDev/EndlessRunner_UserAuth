@@ -30,7 +30,7 @@ app.post("/users/create", (req, res) => {
   const user = new User({
     username: req.body.username.toLowerCase(),
     password: req.body.password.toLowerCase(),
-    account_id: req.body.account_id.toLowerCase(),
+    account_id: req.body.account_id,
   })
   if (user) {
     const Player = mongoose.model('User');
