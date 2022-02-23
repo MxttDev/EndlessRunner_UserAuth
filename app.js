@@ -40,7 +40,7 @@ app.post("/users/create", (req, res) => {
 
       if (result.length == 0) {
 
-        Player.find({ 'account_id': req.body.account_id.toLowerCase() }, function (errs, results) {
+        Player.find({ 'account_id': req.body.account_id }, function (errs, results) {
           if(errs) return next(errs);
 
           if (results.length == 0) {
