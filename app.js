@@ -35,8 +35,11 @@ app.post("/users/create", (req, res) => {
   if (user) {
     const Player = mongoose.model('User');
     Player.find({ 'username': req.body.username.toLowerCase() }, function (err, result) {
+
       if(err) return next(err);
+
       if (result.length == 0) {
+
         Player.find({ 'account_id': req.body.account_id.toLowerCase() }, function (errs, results) {
           if(errs) return next(errs);
 
@@ -49,9 +52,7 @@ app.post("/users/create", (req, res) => {
           res.end();
         });
         
-      } else {
-        res.send('Aleady Created');
-      }
+      } 
       res.end();
     });
   }
