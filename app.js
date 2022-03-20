@@ -19,7 +19,7 @@ mongoose.connect("mongodb+srv://admin:zraJhUoTCuZi2pxkTukVMANej7qNWNMo6kIxZTsv0P
 });
 
 require('./routes/users/getSpecificUsername')(app);
-require('./routes/users/data')(app);
+require('./routes/users/users')(app);
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
