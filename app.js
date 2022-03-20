@@ -58,7 +58,7 @@ app.post("/users/create", (req, res) => {
 app.post("/data/create", (req, res) => {
 
   const storage = new Storage({
-    account_id: req.body.username.toLowerCase(),
+    account_id: req.body.account_id,
     engine: {
       "Test": "one"
     }
