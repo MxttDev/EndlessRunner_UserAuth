@@ -5,11 +5,11 @@ const bodyParser = require("body-parser");
 
 const mongoose = require("mongoose");
 
-const User = require("./models/user")
+const User = require("./models/data")
 
 
 //Connect to mongo database
-mongoose.connect("mongodb+srv://admin:zraJhUoTCuZi2pxkTukVMANej7qNWNMo6kIxZTsv0PcGhmPLJnAWOWm6rf0xn4Af3xxxUwNrg1FE0GKqqeBbEluzu80NowcWLdHeQXzfcQ8bTIFs4gOZh2WYz4oQYTzO@userstorage.v7p3x.mongodb.net/storage?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://admin:zraJhUoTCuZi2pxkTukVMANej7qNWNMo6kIxZTsv0PcGhmPLJnAWOWm6rf0xn4Af3xxxUwNrg1FE0GKqqeBbEluzu80NowcWLdHeQXzfcQ8bTIFs4gOZh2WYz4oQYTzO@userstorage.v7p3x.mongodb.net/player?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
@@ -19,7 +19,7 @@ mongoose.connect("mongodb+srv://admin:zraJhUoTCuZi2pxkTukVMANej7qNWNMo6kIxZTsv0P
 });
 
 require('./routes/users/getSpecificUsername')(app);
-require('./routes/users/users')(app);
+require('./routes/users/data')(app);
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,13 +27,13 @@ app.use(bodyParser.json());
 
 app.post("/users/create", (req, res) => {
 
-  const user = new User({
+  const data = new Data({
     username: req.body.username.toLowerCase(),
     password: req.body.password.toLowerCase(),
     account_id: req.body.account_id,
   })
-  if (user) {
-    const Player = mongoose.model('User');
+  if (data) {
+    const Player = mongoose.model('Data');
     Player.find({ 'username': req.body.username.toLowerCase() }, function (err, result) {
 
       if(err) return next(err);
