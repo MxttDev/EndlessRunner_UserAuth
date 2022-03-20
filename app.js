@@ -59,7 +59,7 @@ app.post("/data/create", (req, res) => {
 
   const storage = new Storage({
     account_id: req.body.account_id,
-    nickname: req.body.username.toLowerCase(),
+    nickname: req.body.nickname.toLowerCase(),
     highest_score: req.body.highest_score
   })
   if (storage) {
