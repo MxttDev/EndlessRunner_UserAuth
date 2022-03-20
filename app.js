@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const Data = require("./models/data")
-
+const Storage = require("./models/storage")
 
 //Connect to mongo database
 mongoose.connect("mongodb+srv://admin:zraJhUoTCuZi2pxkTukVMANej7qNWNMo6kIxZTsv0PcGhmPLJnAWOWm6rf0xn4Af3xxxUwNrg1FE0GKqqeBbEluzu80NowcWLdHeQXzfcQ8bTIFs4gOZh2WYz4oQYTzO@userstorage.v7p3x.mongodb.net/player?retryWrites=true&w=majority", {
@@ -53,6 +53,19 @@ app.post("/users/create", (req, res) => {
       } 
     });
   }
+})
+
+app.post("/data/create", (req, res) => {
+
+  const storage = new Storage({
+    account_id: req.body.username.toLowerCase(),
+    engine: {
+      "Test": "one"
+    }
+  })
+  
+  storage.save();
+  res.send('User Created');
 })
 
 
