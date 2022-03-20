@@ -10,7 +10,6 @@ const storageSchema = new mongoose.Schema({
       name: String,
       values: mongoose.Schema.Types.Mixed
   }]
-  },
 });
 
 const Storage = mongoose.model("Storage", storageSchema, "storage");
