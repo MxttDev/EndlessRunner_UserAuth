@@ -6,10 +6,14 @@ const storageSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  engine: [{
-      name: String,
-      values: mongoose.Schema.Types.Mixed
-  }]
+  nickname: {
+      type: String,
+      required: true
+  },
+  highest_score: {
+      type: Number,
+      required: true
+  }
 });
 
 const Storage = mongoose.model("Storage", storageSchema, "storage");

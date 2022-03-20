@@ -59,13 +59,30 @@ app.post("/data/create", (req, res) => {
 
   const storage = new Storage({
     account_id: req.body.account_id,
-    engine: {
-      "Test": "one"
-    }
+    nickname: req.body.username.toLowerCase(),
+    highest_score: req.body.highest_score
   })
-  
-  storage.save();
-  res.send('User Created');
+  if (storage) {
+    const Player = mongoose.model('Storage');
+    Player.find({ 'account_id': req.body.account_id }, function (err, result) {
+
+      if(err) return next(err);
+
+      if (result.length == 0) {
+
+        Player.find({ 'account_id': req.body.account_id }, function (errs, results) {
+          if(errs) return next(errs);
+
+          if (results.length == 0) {
+            storage.save();
+            res.send('User Created');
+          } else {
+            res.send('Already created')
+          }
+        });
+      } 
+    });
+  }
 })
 
 
