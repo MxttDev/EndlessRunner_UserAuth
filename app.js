@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 const mongoose = require("mongoose");
 
-const Data = require("./models/data")
+const Data = require("./models/users")
 
 
 //Connect to mongo database
