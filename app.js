@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 const mongoose = require("mongoose");
 
-const User = require("./models/data")
+const Data = require("./models/data")
 
 
 //Connect to mongo database
@@ -44,7 +44,7 @@ app.post("/users/create", (req, res) => {
           if(errs) return next(errs);
 
           if (results.length == 0) {
-            user.save();
+            data.save();
             res.send('User Created');
           } else {
             res.send('Already created')
